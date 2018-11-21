@@ -13,8 +13,9 @@ class FixedPoint {
 
 
 public:
-    /*explicit FixedPoint(int dollars = 0);*/
-    static typename T::theType theType;
+    typedef T theType;
+
+    enum {PRECISION = SIZE};
 
     FixedPoint(T dollars = 0, T cents = 0);
 
