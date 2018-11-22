@@ -48,10 +48,19 @@
 
 void test_pricepoint_char_numerical_limit() {
 
-    FixedPoint<1, unsigned char> p(25, 5);
-    if (numeric_limits<FixedPoint<1, unsigned char> >::max() == p) {
-        std::cout << numeric_limits<FixedPoint<1, char> >::min() << std::endl;
+    FixedPoint<1, char> p(-12, -8);
+    std::cout << numeric_limits<FixedPoint<1, char> >::min() << std::endl;
+    if (numeric_limits<FixedPoint<1, char> >::min() == p) {
         std::cout << "char_numerical_limit TEST passed" << std::endl;
+    }
+}
+
+void test_pricepoint_unsigned_char_numerical_limit() {
+
+    FixedPoint<1, unsigned char> p(25, 5);
+    std::cout << numeric_limits<FixedPoint<1, unsigned char> >::max() << std::endl;
+    if (numeric_limits<FixedPoint<1, unsigned char> >::max() == p) {
+        std::cout << "unsigned_char_numerical_limit TEST passed" << std::endl;
     }
 }
 
@@ -62,6 +71,7 @@ int main() {
 //    test_mul_operator();
 //    test_minus_operator();
     test_pricepoint_char_numerical_limit();
+    test_pricepoint_unsigned_char_numerical_limit();
 //    std::cout<<"numeric max "<<numeric::max();
     return 0;
 }
