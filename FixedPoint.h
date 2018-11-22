@@ -237,7 +237,8 @@ public:
 
 //template<unsigned int SIZE, typename T, template<unsigned int, typename> class FixedPoint>
 template<>
-template<unsigned int SIZE, typename T, template<unsigned int, typename> class FixedPoint>
+//template<unsigned int SIZE, typename T, template<unsigned int, typename> class FixedPoint>
+template<unsigned int SIZE, typename T>
 class numeric_limits<FixedPoint<SIZE, T> > {
 public:
 static const bool is_specialized = true;
