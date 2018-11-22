@@ -235,22 +235,24 @@ public:
 };
 
 
+//template<unsigned int SIZE, typename T, template<unsigned int, typename> class FixedPoint>
+template<>
 template<unsigned int SIZE, typename T, template<unsigned int, typename> class FixedPoint>
 class numeric_limits<FixedPoint<SIZE, T> > {
 public:
-    static const bool is_specialized = true;
+static const bool is_specialized = true;
 
-    static FixedPoint<SIZE, T> min() {
-        size_t divider = power1(10, SIZE);
-        T new_min = std::numeric_limits<T>::min();
-        return FixedPoint<SIZE, T>(new_min / divider, new_min % divider);
-    }
+static FixedPoint<SIZE, T> min() {
+    size_t divider = power1(10, SIZE);
+    T new_min = std::numeric_limits<T>::min();
+    return FixedPoint<SIZE, T>(new_min / divider, new_min % divider);
+}
 
-    static FixedPoint<SIZE, T> max() {
-        size_t divider = power1(10, SIZE);
-        T new_max = std::numeric_limits<T>::max();
-        return FixedPoint<SIZE, T>(new_max / divider, new_max % divider);
-    }
+static FixedPoint<SIZE, T> max() {
+    size_t divider = power1(10, SIZE);
+    T new_max = std::numeric_limits<T>::max();
+    return FixedPoint<SIZE, T>(new_max / divider, new_max % divider);
+}
 };
 
 
